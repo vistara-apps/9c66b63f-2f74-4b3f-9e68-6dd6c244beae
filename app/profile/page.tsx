@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import Image from 'next/image';
 import { AppShell } from '@/components/AppShell';
 import { ContentCard } from '@/components/ContentCard';
 import { ButtonPrimary } from '@/components/ButtonPrimary';
@@ -86,9 +87,11 @@ export default function ProfilePage() {
           <div className="flex items-start justify-between mb-4">
             <div className="flex items-center space-x-4">
               <div className="relative">
-                <img
+                <Image
                   src={user.profilePicUrl || '/placeholder-avatar.png'}
                   alt="Profile"
+                  width={80}
+                  height={80}
                   className="w-20 h-20 rounded-full object-cover"
                 />
                 <div className="absolute -bottom-1 -right-1 bg-primary rounded-full p-2">

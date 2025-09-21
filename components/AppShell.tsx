@@ -4,15 +4,17 @@ import { useState } from 'react';
 import { Home, Search, User, Settings, Zap } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
+type TabType = 'home' | 'discover' | 'profile' | 'builder';
+
 interface AppShellProps {
   children: React.ReactNode;
-  currentPage?: 'home' | 'discover' | 'profile' | 'builder';
+  currentPage?: TabType;
 }
 
 export function AppShell({ children, currentPage = 'home' }: AppShellProps) {
-  const [activeTab, setActiveTab] = useState(currentPage);
+  const [activeTab, setActiveTab] = useState<TabType>(currentPage);
 
-  const navItems = [
+  const navItems: { id: TabType; icon: any; label: string }[] = [
     { id: 'home', icon: Home, label: 'Home' },
     { id: 'discover', icon: Search, label: 'Discover' },
     { id: 'builder', icon: Zap, label: 'Builder' },
